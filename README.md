@@ -17,3 +17,8 @@ cd spark-hdfs-demo
 sh install-deps.sh
 source ~/.bashrc
 ```
+4. Create SSH keys and copy the public key over master and slave for hdfs operations. After this step, ssh to VM instances using internal IP (without password) should work fine.
+```
+ssh-keygen -t rsa
+cat ~/.ssh/id_rsa.pub
+```
