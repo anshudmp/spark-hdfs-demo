@@ -28,7 +28,7 @@ In core-site.html, fs.default.name should point to correct master.
 In hdfs-site.xml, make sure the name and data directories exist, else create them.
 Modify dfs.replication in hdfs-site.xml based on need.
 In mapred-site.xml, correct the master IP for mapred.job.tracker property.
-Edit the masters and slaves template accordingly.
+Edit the masters and slaves/workers template accordingly.
 ```
 6. Broadcast the template changes done above to /etc/hadoop/ (HADOOP_CONF_DIR) of all nodes.
 7. Format the namenode.
