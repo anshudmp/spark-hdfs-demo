@@ -5,7 +5,7 @@ A project for execution of Word Count problem on Spark by referring data stored 
 1. Install Git
 ```
 sudo apt update
-sudo apt install git
+sudo apt install -y git
 ```
 2. Clone this repository
 ```
