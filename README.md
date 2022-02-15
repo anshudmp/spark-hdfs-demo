@@ -30,7 +30,7 @@ Modify dfs.replication in hdfs-site.xml based on need.
 In mapred-site.xml, correct the master IP for mapred.job.tracker property.
 Edit the masters and slaves template accordingly.
 ```
-6. Broadcast the template changes done above to all nodes.
+6. Broadcast the template changes done above to /etc/hadoop/ (HADOOP_CONF_DIR) of all nodes.
 7. Format the namenode.
 ```
 hdfs namenode -format
