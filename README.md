@@ -35,3 +35,44 @@ Edit the masters and slaves/workers template accordingly.
 ```
 hdfs namenode -format
 ```
+8. Start hadoop system from within hadoop home directory
+```
+./sbin/start-all.sh
+```
+9. Generate large file (4.8 GB default)
+```
+sh genLarFile.sh
+```
+10. Create distributed input directory
+```
+hdfs dfs -mkdir -p /dfs/input
+```
+11. Put the generated large file on DFS
+```
+hdfs dfs -put test.txt /dfs/input/
+```
+12. Copy workers from within hadoop_templates directory (on all nodes):
+```
+cp workers ../spark-3.2.1-bin-hadoop2.7/conf/
+```
+13. Go to spark-3.2.1-bin-hadoop2.7/conf and execute below (Only for master):
+```
+cp spark-env.sh.template spark-env.sh
+Add SPARK_MASTER_HOST='10.182.0.4' (modify master IP accordingly)
+```
+14. From master node execute the below command for spark home directory:
+```
+./sbin/start-all.sh
+```
+15. Create a tunnel like below to access Spark UI on local PC (first one is internal IP and second is public IP). Once executed go to localhost:8080 on local PC.
+```
+ssh -L 8080:10.182.0.4:8080 -i google_compute_engine anshudmp@34.125.147.249
+```
+16. From the spark home directory, execute the following code for Java Word Count problem (change the path/IP accordingly):
+```
+./bin/spark-submit \
+    --deploy-mode client \
+    --master spark://10.182.0.4:7077 \
+    --class org.apache.spark.examples.JavaWordCount \
+    /home/anshudmp/spark-hdfs-demo/spark-3.2.1-bin-hadoop2.7/examples/jars/spark-examples_2.12-3.2.1.jar hdfs://10.182.0.4:9000/dfs/input/test.txt
+```
