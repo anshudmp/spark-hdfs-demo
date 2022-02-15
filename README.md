@@ -22,3 +22,11 @@ source ~/.bashrc
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub
 ```
+5. Modify the template files according to Internal IP of master and slave nodes.
+```
+In core-site.html, fs.default.name should point to correct master.
+In hdfs-site.xml, make sure the name and data directories exist, else create them.
+Modify dfs.replication in hdfs-site.xml based on need.
+In mapred-site.xml, correct the master IP for mapred.job.tracker property.
+Edit the masters and slaves template accordingly.
+```
