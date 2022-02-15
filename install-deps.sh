@@ -9,6 +9,7 @@ wget -c https://downloads.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar
 curr_dir=$PWD
 echo "export SPARK_HOME=${curr_dir}/spark-3.2.1-bin-hadoop2.7" >> ~/.bashrc
 echo "export HADOOP_HOME=${curr_dir}/hadoop-3.3.1" >> ~/.bashrc
-echo "export HADOOP_CONF_DIR=${curr_dir}/etc/hadoop" >> ~/.bashrc
-echo "export PATH=$PATH:~${curr_dir}/hadoop-3.3.1/bin" >> ~/.bashrc
+echo "export HADOOP_CONF_DIR=${curr_dir}/hadoop-3.3.1/etc/hadoop" >> ~/.bashrc
+#echo "export PATH=$PATH:~${curr_dir}/hadoop-3.3.1/bin" >> ~/.bashrc
+echo 'export PATH=$PATH:$HADOOP_HOME/bin/' >> ~/.bashrc
 #source ~/.bashrc
