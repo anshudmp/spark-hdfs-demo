@@ -15,4 +15,5 @@ git clone https://github.com/anshudmp/spark-hdfs-demo.git
 ```
 cd spark-hdfs-demo
 sh install-deps.sh
+source ~/.bashrc
 ```
